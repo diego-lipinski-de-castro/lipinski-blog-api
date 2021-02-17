@@ -15,16 +15,20 @@ module.exports = {
                 data.slug = slugify(data.title, {lower: true});
             }
 
-            const stats = readingTime(data.content);
-            data.timing = stats.text;
+            if(data.content) {
+                const stats = readingTime(data.content);
+                data.timing = stats.text;
+            }
         },
         async beforeUpdate(params, data) {
             if (data.title) {
                 data.slug = slugify(data.title, {lower: true});
             }
 
-            const stats = readingTime(data.content);
-            data.timing = stats.text;
+            if(data.content) {
+                const stats = readingTime(data.content);
+                data.timing = stats.text;
+            }
         },
     },
 };
